@@ -5,7 +5,9 @@ trap 'sudo kill $BGPID; exit 0;' SIGKILL
 trap 'sudo kill $BGPID; exit 0;' INT
 trap 'sudo kill $BGPID; exit 0;' KILL
 
-sudo node -r esm server.js &
+port=$1
+
+sudo node -r esm server.js $port &
 BGPID=$!
 
 cd docviewer
